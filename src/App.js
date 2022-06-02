@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AppRouters from "./Routers/AppRouters";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import AuthProvider from "./Auth/AuthProvider";
+import { lightTheme } from "./Theme/light-theme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <AppRouters />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 
